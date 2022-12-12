@@ -19,16 +19,26 @@ namespace CarOrderingBackend.Data.ContextConfigurations
                 (
                     new Rims
                     {
-                        Id = _ids[0],
+                        Id = Guid.NewGuid(),
                         Name = "Dragmaster",
-                        Size = 18
+                        Size = 18,
+                        CarId = _ids[0]
                     },
 
                     new Rims
                     {
-                        Id = _ids[1],
+                        Id = Guid.NewGuid(),
                         Name = "Occult",
-                        Size = 19
+                        Size = 19,
+                        CarId = _ids[1]
+                    },
+
+                    new Rims
+                    {
+                        Id = Guid.NewGuid(),
+                        Name = "Dream",
+                        Size = 17,
+                        CarId = _ids[2]
                     }
                 );
         }

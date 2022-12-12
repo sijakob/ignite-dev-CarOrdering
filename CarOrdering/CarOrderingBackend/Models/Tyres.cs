@@ -20,5 +20,9 @@ namespace CarOrderingBackend.Models
         [Required]
         public string? Manufacturer { get; set; }
         public SeasonType SeasonType { get; set; }
+
+        [ForeignKey("CarId")]
+        public Guid CarId { get; set; }
+        public Car Car { get; set; }
     }
 }

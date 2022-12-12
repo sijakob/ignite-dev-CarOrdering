@@ -19,21 +19,24 @@ namespace CarOrderingBackend.Data.ContextConfigurations
                 (
                     new CarModel
                     {
-                        Id = _ids[0],
+                        Id = Guid.NewGuid(),
                         Name = "XC90",
-                        ModelYear = 2020
+                        ModelYear = 2020,
+                        CarId = _ids[0]
                     },
                     new CarModel 
                     {
-                        Id = _ids[1],
+                        Id = Guid.NewGuid(),
                         Name = "S90",
-                        ModelYear = 2021
+                        ModelYear = 2021,
+                        CarId = _ids[1]
                     },
                     new CarModel
                     {
                         Id = _ids[2],
                         Name = "V60",
-                        ModelYear = 2018
+                        ModelYear = 2018,
+                        CarId = _ids[2]
                     }
                 );
         }

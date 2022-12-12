@@ -14,16 +14,13 @@ namespace CarOrderingBackend.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            var CarModelIds = new Guid[] {Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid()};
-            var PaintIds = new Guid[] {Guid.NewGuid(), Guid.NewGuid()};
-            var RimsIds = new Guid[] {Guid.NewGuid(), Guid.NewGuid()};
-            var TyreIds = new Guid[] {Guid.NewGuid(), Guid.NewGuid()};
+            var ids = new Guid[] { Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid() };
 
-            builder.ApplyConfiguration(new CarContextConfig(CarModelIds, PaintIds, RimsIds, TyreIds));
-            builder.ApplyConfiguration(new CarModelContextConfig(CarModelIds));
-            builder.ApplyConfiguration(new PaintContextConfig(PaintIds));
-            builder.ApplyConfiguration(new RimsContextConfig(RimsIds));
-            builder.ApplyConfiguration(new TyresContextConfig(TyreIds));
+            builder.ApplyConfiguration(new CarContextConfig(ids));
+            builder.ApplyConfiguration(new CarModelContextConfig(ids));
+            builder.ApplyConfiguration(new PaintContextConfig(ids));
+            builder.ApplyConfiguration(new RimsContextConfig(ids));
+            builder.ApplyConfiguration(new TyresContextConfig(ids));
         }
 
         public DbSet<Car> Cars { get; set; }

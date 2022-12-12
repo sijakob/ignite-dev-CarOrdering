@@ -18,16 +18,26 @@ namespace CarOrderingBackend.Data.ContextConfigurations
                 (
                     new Paint
                     {
-                        Id = _ids[0],
+                        Id = Guid.NewGuid(),
                         Color = "Midnight Blue",
-                        PaintType = PaintType.Regular
+                        PaintType = PaintType.Regular,
+                        CarId = _ids[0]
                     },
 
                     new Paint
                     {
-                        Id = _ids[1],
-                        Color = "Space Black",
-                        PaintType = PaintType.Metallic
+                        Id = Guid.NewGuid(),
+                        Color = "Night Black",
+                        PaintType = PaintType.Metallic,
+                        CarId = _ids[1]
+                    },
+
+                    new Paint
+                    {
+                        Id = Guid.NewGuid(),
+                        Color = "Snow White",
+                        PaintType = PaintType.Matte,
+                        CarId = _ids[2]
                     }
                 );
         }

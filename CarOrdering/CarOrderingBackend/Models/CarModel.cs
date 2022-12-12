@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -15,5 +11,10 @@ namespace CarOrderingBackend.Models
         [Required]
         public string? Name { get; set; }
         public int ModelYear { get; set; }
+
+
+        [ForeignKey("CarId")]
+        public Guid CarId { get; set; }
+        public Car Car { get; set; }
     }
 }

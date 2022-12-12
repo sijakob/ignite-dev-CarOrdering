@@ -18,20 +18,28 @@ namespace CarOrderingBackend.Data.ContextConfigurations
                 (
                     new Tyres
                     {
-                        Id = _ids[0],
+                        Id = Guid.NewGuid(),
                         Manufacturer = "Michelin",
-                        SeasonType = SeasonType.Summer
+                        SeasonType = SeasonType.Summer,
+                        CarId = _ids[0]
                     },
 
                     new Tyres
                     {
-                        Id = _ids[1],
+                        Id = Guid.NewGuid(),
                         Manufacturer = "Continental",
-                        SeasonType = SeasonType.WinterNoStud
+                        SeasonType = SeasonType.WinterNoStud,
+                        CarId = _ids[1]
+                    },
+
+                    new Tyres
+                    {
+                        Id = Guid.NewGuid(),
+                        Manufacturer = "Pirelli",
+                        SeasonType = SeasonType.WinterStud,
+                        CarId = _ids[2]
                     }
                 );
-
         }
-
     }
 }

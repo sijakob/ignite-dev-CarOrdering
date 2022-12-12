@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarOrderingBackend.Models
 {
@@ -11,17 +6,16 @@ namespace CarOrderingBackend.Models
     {
         [Key]
         public Guid Id { get; set; }
+        public string Name { get; set; }
 
-        [ForeignKey("CarModelId")]
-        public Guid CarModelId { get; set; }
 
-        [ForeignKey("PaintId")]
-        public Guid PaintId { get; set; }
-
-        [ForeignKey("RimId")]
-        public Guid RimId { get; set; }
-
-        [ForeignKey("TyreId")]
-        public Guid TyreId { get; set; }
+        [Required]
+        public CarModel? CarModel { get; set; }
+        [Required]
+        public Paint? Paint { get; set; }
+        [Required]
+        public Rims? Rims { get; set; }  
+        [Required]
+        public Tyres? Tyres { get; set; }
     }
 }

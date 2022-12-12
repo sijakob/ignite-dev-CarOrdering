@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarOrderingBackend.Models
 {
@@ -16,5 +17,9 @@ namespace CarOrderingBackend.Models
         public string? Color { get; set; }
         [Required]
         public PaintType PaintType { get; set; }
+
+        [ForeignKey("CarId")]
+        public Guid CarId { get; set; }
+        public Car Car { get; set; }
     }
 }
