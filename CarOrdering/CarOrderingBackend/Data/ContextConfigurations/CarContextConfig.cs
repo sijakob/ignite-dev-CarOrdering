@@ -8,8 +8,9 @@ namespace CarOrderingBackend.Data.ContextConfigurations
     public class CarContextConfig : IEntityTypeConfiguration<Car>
     {
         private Guid[] _ids;
-        public CarContextConfig() 
+        public CarContextConfig(Guid[] ids) 
         {
+            _ids = ids;
         }
 
         public void Configure(EntityTypeBuilder<Car> builder)
