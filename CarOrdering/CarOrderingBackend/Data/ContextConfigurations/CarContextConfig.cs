@@ -22,6 +22,8 @@ namespace CarOrderingBackend.Data.ContextConfigurations
                     {
                         Id = _ids[0],
                         Name = "CustomCar1"
+           
+
                     },
 
                     new Car

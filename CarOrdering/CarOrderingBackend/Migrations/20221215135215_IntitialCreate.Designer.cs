@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarOrderingBackend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221207141038_IntitialCreate")]
+    [Migration("20221215135215_IntitialCreate")]
     partial class IntitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,46 +25,49 @@ namespace CarOrderingBackend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("CarModelId")
+                    b.Property<Guid?>("CarModelId")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("PaintId")
+                    b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("RimId")
+                    b.Property<Guid?>("PaintId")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("TyreId")
+                    b.Property<Guid?>("RimsId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid?>("TyresId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CarModelId");
+
+                    b.HasIndex("PaintId");
+
+                    b.HasIndex("RimsId");
+
+                    b.HasIndex("TyresId");
 
                     b.ToTable("Cars");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("dfad21e4-c1d6-44ac-9117-a91689e22ddc"),
-                            CarModelId = new Guid("6cf296b8-66bd-419a-8532-ecda364e42fa"),
-                            PaintId = new Guid("544a8644-3572-4daf-a615-174843429997"),
-                            RimId = new Guid("f5ab9bbd-5d3d-4de0-9c8a-179b44e281e7"),
-                            TyreId = new Guid("067de25c-5842-4d57-92a5-e26ab856bbd9")
+                            Id = new Guid("3f8793de-1fd7-4c19-be36-36bb6ef03215"),
+                            Name = "CustomCar1"
                         },
                         new
                         {
-                            Id = new Guid("69b9217f-1dbd-4dc9-8a48-90ab90e9f4a1"),
-                            CarModelId = new Guid("2fb81c08-2593-42c3-b3c1-cfc9ebf38fd7"),
-                            PaintId = new Guid("567344be-1cb1-4dd2-8001-030339b4f705"),
-                            RimId = new Guid("15a31af7-9d0c-4bee-a377-5b38fe5d9b38"),
-                            TyreId = new Guid("22c54800-560c-4ee7-a8c3-6026ab684d65")
+                            Id = new Guid("eccadda2-77ac-4f9e-a960-42a2ff232029"),
+                            Name = "CustomCar2"
                         },
                         new
                         {
-                            Id = new Guid("ea8f91d6-6d8a-463e-9dd4-7213dc70083b"),
-                            CarModelId = new Guid("5d1d2b66-9d55-4074-8712-6caad55d569a"),
-                            PaintId = new Guid("544a8644-3572-4daf-a615-174843429997"),
-                            RimId = new Guid("15a31af7-9d0c-4bee-a377-5b38fe5d9b38"),
-                            TyreId = new Guid("067de25c-5842-4d57-92a5-e26ab856bbd9")
+                            Id = new Guid("411eb5c4-b628-4c87-af77-a63769de382c"),
+                            Name = "CustomCar3"
                         });
                 });
 
@@ -88,19 +91,19 @@ namespace CarOrderingBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6cf296b8-66bd-419a-8532-ecda364e42fa"),
+                            Id = new Guid("db1bb43f-4dd4-4e3b-96fd-4322f89a24a4"),
                             ModelYear = 2020,
                             Name = "XC90"
                         },
                         new
                         {
-                            Id = new Guid("2fb81c08-2593-42c3-b3c1-cfc9ebf38fd7"),
+                            Id = new Guid("171592d0-5034-4d9a-832a-5227b6650e7a"),
                             ModelYear = 2021,
                             Name = "S90"
                         },
                         new
                         {
-                            Id = new Guid("5d1d2b66-9d55-4074-8712-6caad55d569a"),
+                            Id = new Guid("a86aa4e4-881b-475c-96a3-db12902cfb2d"),
                             ModelYear = 2018,
                             Name = "V60"
                         });
@@ -126,15 +129,21 @@ namespace CarOrderingBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("544a8644-3572-4daf-a615-174843429997"),
+                            Id = new Guid("3a310079-ce3a-415b-9992-29b75a76e3ba"),
                             Color = "Midnight Blue",
                             PaintType = 0
                         },
                         new
                         {
-                            Id = new Guid("567344be-1cb1-4dd2-8001-030339b4f705"),
-                            Color = "Space Black",
+                            Id = new Guid("7a2ef43a-0c57-446b-aecb-ad1b293332c3"),
+                            Color = "Night Black",
                             PaintType = 1
+                        },
+                        new
+                        {
+                            Id = new Guid("00d3636a-df2b-43a3-b4f4-f98d904bc6de"),
+                            Color = "Snow White",
+                            PaintType = 2
                         });
                 });
 
@@ -158,15 +167,21 @@ namespace CarOrderingBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f5ab9bbd-5d3d-4de0-9c8a-179b44e281e7"),
+                            Id = new Guid("6bbc9408-9c95-4e06-b3c9-078679fb06f9"),
                             Name = "Dragmaster",
                             Size = 18
                         },
                         new
                         {
-                            Id = new Guid("15a31af7-9d0c-4bee-a377-5b38fe5d9b38"),
+                            Id = new Guid("e872b2b8-0172-4f66-8a79-c1b7396cd4ab"),
                             Name = "Occult",
                             Size = 19
+                        },
+                        new
+                        {
+                            Id = new Guid("883b2311-3168-455a-a54c-c97bc166fe80"),
+                            Name = "Dream",
+                            Size = 17
                         });
                 });
 
@@ -190,16 +205,49 @@ namespace CarOrderingBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("067de25c-5842-4d57-92a5-e26ab856bbd9"),
+                            Id = new Guid("8da92000-acfc-42e2-bbac-e9852c24fbbc"),
                             Manufacturer = "Michelin",
                             SeasonType = 0
                         },
                         new
                         {
-                            Id = new Guid("22c54800-560c-4ee7-a8c3-6026ab684d65"),
+                            Id = new Guid("5511b992-7318-42d0-a388-4aecc3eb8d32"),
                             Manufacturer = "Continental",
                             SeasonType = 2
+                        },
+                        new
+                        {
+                            Id = new Guid("2e60fd51-81a2-40ae-88b7-1820a9c25ed4"),
+                            Manufacturer = "Pirelli",
+                            SeasonType = 1
                         });
+                });
+
+            modelBuilder.Entity("CarOrderingBackend.Models.Car", b =>
+                {
+                    b.HasOne("CarOrderingBackend.Models.CarModel", "CarModel")
+                        .WithMany()
+                        .HasForeignKey("CarModelId");
+
+                    b.HasOne("CarOrderingBackend.Models.Paint", "Paint")
+                        .WithMany()
+                        .HasForeignKey("PaintId");
+
+                    b.HasOne("CarOrderingBackend.Models.Rims", "Rims")
+                        .WithMany()
+                        .HasForeignKey("RimsId");
+
+                    b.HasOne("CarOrderingBackend.Models.Tyres", "Tyres")
+                        .WithMany()
+                        .HasForeignKey("TyresId");
+
+                    b.Navigation("CarModel");
+
+                    b.Navigation("Paint");
+
+                    b.Navigation("Rims");
+
+                    b.Navigation("Tyres");
                 });
 #pragma warning restore 612, 618
         }

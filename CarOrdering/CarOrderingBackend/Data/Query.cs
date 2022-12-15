@@ -1,9 +1,10 @@
+using CarOrderingBackend.Data;
 using CarOrderingBackend.Models;
 namespace CarOrderingBackend
 {
     public class Query
     {
-        public IQueryable<Car> GetCars =>
-            new List<Car>().AsQueryable();
+        public IQueryable<Car> getCars([Service] ApplicationDbContext context) =>
+            context.Cars;
     }
 }

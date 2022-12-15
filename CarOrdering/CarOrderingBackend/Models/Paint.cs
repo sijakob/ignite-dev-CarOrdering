@@ -18,8 +18,6 @@ namespace CarOrderingBackend.Models
         [Required]
         public PaintType PaintType { get; set; }
 
-        [ForeignKey("CarId")]
-        public Guid CarId { get; set; }
-        public Car Car { get; set; }
+
     }
 }

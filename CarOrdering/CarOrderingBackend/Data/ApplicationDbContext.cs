@@ -17,10 +17,10 @@ namespace CarOrderingBackend.Data
             var ids = new Guid[] { Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid() };
 
             builder.ApplyConfiguration(new CarContextConfig(ids));
-            builder.ApplyConfiguration(new CarModelContextConfig(ids));
-            builder.ApplyConfiguration(new PaintContextConfig(ids));
-            builder.ApplyConfiguration(new RimsContextConfig(ids));
-            builder.ApplyConfiguration(new TyresContextConfig(ids));
+            builder.ApplyConfiguration(new CarModelContextConfig());
+            builder.ApplyConfiguration(new PaintContextConfig());
+            builder.ApplyConfiguration(new RimsContextConfig());
+            builder.ApplyConfiguration(new TyresContextConfig());
         }
 
         public DbSet<Car> Cars { get; set; }
